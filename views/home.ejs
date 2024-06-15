@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: "Koulen";
+        }
+    </style>
+</head>
+<body>
+    <div class="container border border-4 mt-5"  style="height: 100vh;">
+        <h1 class="text-center mt-3">Blog Website</h1>
+        <button class="btn btn-warning ms-5">Refresh</button>
+        <a href="/addPage">
+            <button class="btn btn-primary ms-5">Add</button>
+        </a>
+        <div class="container mt-3 d-flex justify-content-between flex-wrap" style="height: 80%;">
+            <% blog.forEach(blog => { %>
+               <% if(blog.status == "available") { %>
+                    <div class="card border border-4 px-2 py-3" style="width: 48%; height: 40%;">
+                        <h5 class="text-primary"><%= blog.title %></h5>
+                        <p><%= blog.description %></p>
+                        <p><%= date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear()  %></p>
+                    </div>
+               <% } %>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
