@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
@@ -19,21 +19,21 @@
 </head>
 <body>
     <div class="form-container ">
-        <h2 class="text-center mt-2">Blog Adding</h2>
-        <form action="/blog/createBlog" method="POST" style="width: 95%;">
+        <h2 class="text-center mt-2">Blog Editing</h2>
+        <form action="/blog/updateBlog/<%=editedBlog.id%>" method="POST" style="width: 95%;">
             <div class="form-group" style="width: 100%; padding: 10px 15px;">
                 <label class="my-3" for="title">Title : </label>
-                <input id="title" name="title" type="text" class="form-control" placeholder="Input Blog Title" required>
+                <input id="title" name="title" value="<%= editedBlog.title %>" type="text" class="form-control" placeholder="Input Blog Title" required>
             </div>
             <div class="form-group" style="width: 100%; padding: 10px 15px;">
                 <label class="my-3" for="desc">Description : </label>
-                <input id="desc" name="desc" type="text" class="form-control" placeholder="Input Blog Title" required>
+                <input id="desc" name="desc" value="<%= editedBlog.description %>" type="text" class="form-control" placeholder="Input Blog Title" required>
             </div>
             <div class="form-group" style="width: 100%; padding: 10px 15px;">
                 <label class="my-3" for="">Status </label>
-                <select name="status" id="status" class="form-select">
+                <select name="status" id="status"  class="form-select">
                     <option value="available">Available</option>
-                    <option value="unavailable">Unavailable</option>
+                    <option value="unavailable" >Unavailable</option>
                 </select>
             </div>
             <button type="reset" class="btn btn-danger m-3">Cancel</button>

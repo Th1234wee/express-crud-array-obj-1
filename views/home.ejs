@@ -21,13 +21,19 @@
         <a href="/addPage">
             <button class="btn btn-primary ms-5">Add</button>
         </a>
-        <div class="container mt-3 d-flex justify-content-between flex-wrap" style="height: 80%;">
+        <div class="container mt-3 d-flex justify-content-between flex-wrap" style="height: auto;">
             <% blog.forEach(blog => { %>
                <% if(blog.status == "available") { %>
-                    <div class="card border border-4 px-2 py-3" style="width: 48%; height: 40%;">
+                    <div class="card border border-4 px-2 py-3 my-4" style="width: 48%; height: auto;">
                         <h5 class="text-primary"><%= blog.title %></h5>
                         <p><%= blog.description %></p>
                         <p><%= date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear()  %></p>
+                        <form method="post" action="/blog/removeBlog/<% blog.id %>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form><br>
+                        <form action="/editPage/<%= blog.id %>">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
                     </div>
                <% } %>
             <% }) %>
